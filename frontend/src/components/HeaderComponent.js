@@ -63,7 +63,7 @@ const HeaderComponent = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand href="/">K2 TECH</Navbar.Brand>
+          <Navbar.Brand href="/">BEST ONLINE SHOP</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -97,7 +97,13 @@ const HeaderComponent = () => {
             </InputGroup>
           </Nav>
           <Nav>
-            {userInfo.name ? (
+            {userInfo.isAdmin ? (
+              <LinkContainer to="/admin/orders">
+                <Nav.Link>
+                  Admin
+                </Nav.Link>
+              </LinkContainer>
+            ) : userInfo.name && !userInfo.isAdmin ? (
               <NavDropdown
                 title={`${userInfo.name} ${userInfo.lastName}`}
                 id="collasible-nav-dropdown"
